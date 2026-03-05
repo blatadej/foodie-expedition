@@ -7,14 +7,13 @@ import MapReveal from "./MapReveal.jsx";
 // STYLES
 // ─────────────────────────────────────────────────────────────────────────────
 const G = `
-  @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@400;600;700;800;900&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body, #root { min-height: 100%; background: #fff; font-family: 'Barlow', sans-serif; color: #0d0d1a; -webkit-font-smoothing: antialiased; }
+  html, body, #root { min-height: 100%; background: #fff; font-family: "Futura", "Century Gothic", "Trebuchet MS", sans-serif; color: #0d0d1a; -webkit-font-smoothing: antialiased; }
   .app { min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
 
   /* HEADER */
   .hdr { width: 100%; display: flex; flex-direction: column; align-items: center; padding: 28px 0 10px; }
-  .hdr-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.35rem; letter-spacing: 2px; text-transform: uppercase; }
+  .hdr-logo { font-family: "Futura", "Century Gothic", "Trebuchet MS", sans-serif; font-weight: 900; font-size: 1.35rem; letter-spacing: 2px; text-transform: uppercase; }
   .hdr-logo span { color: #4f7fff; }
   .hdr-sub { font-size: 0.62rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #aab; margin-top: 2px; }
 
@@ -23,7 +22,7 @@ const G = `
 
   /* HOME */
   .home-hero { text-align: center; margin: 56px 0 44px; }
-  .home-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(2.6rem,8vw,3.8rem); line-height: 1; text-transform: uppercase; letter-spacing: -1px; }
+  .home-title { font-family: "Futura", "Century Gothic", "Trebuchet MS", sans-serif; font-weight: 900; font-size: clamp(2.6rem,8vw,3.8rem); line-height: 1; text-transform: uppercase; letter-spacing: -1px; }
   .home-ghost { color: #dde2f0; display: block; }
   .home-sub { font-size: 0.68rem; font-weight: 700; letter-spacing: 5px; text-transform: uppercase; color: #aab; margin-top: 14px; }
   .mode-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -43,15 +42,15 @@ const G = `
   .topnav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0 22px; }
   .back { width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid #eef0f6; background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1rem; transition: border-color 0.2s; }
   .back:hover { border-color: #c8d0f0; }
-  .room-pill { display: flex; align-items: center; gap: 6px; background: #0d0d1a; color: #fff; border-radius: 50px; padding: 6px 14px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 2px; cursor: pointer; user-select: none; }
+  .room-pill { display: flex; align-items: center; gap: 6px; background: #0d0d1a; color: #fff; border-radius: 50px; padding: 6px 14px; font-family: "Futura", "Century Gothic", "Trebuchet MS", sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 2px; cursor: pointer; user-select: none; }
   .pill-dot { width: 7px; height: 7px; border-radius: 50%; background: #4CAF50; animation: blink 1.5s ease-in-out infinite; }
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
   /* FIELDS */
-  .field { width: 100%; background: #f4f6fb; border: none; border-radius: 12px; padding: 17px 20px; margin-bottom: 10px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 2px; text-transform: uppercase; color: #0d0d1a; outline: none; transition: background 0.2s; }
+  .field { width: 100%; background: #f4f6fb; border: none; border-radius: 12px; padding: 17px 20px; margin-bottom: 10px; font-family: "Futura", "Century Gothic", "Trebuchet MS", sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 2px; text-transform: uppercase; color: #0d0d1a; outline: none; transition: background 0.2s; }
   .field::placeholder { color: #b0b8cc; }
   .field:focus { background: #eceffe; }
-  .field-plain { font-family: 'Barlow', sans-serif; font-weight: 500; letter-spacing: 0; text-transform: none; font-size: 1rem; text-align: center; }
+  .field-plain { font-family: "Futura", "Century Gothic", "Trebuchet MS", sans-serif; font-weight: 500; letter-spacing: 0; text-transform: none; font-size: 1rem; text-align: center; }
 
   /* AUTOCOMPLETE */
   .ac { position: relative; width: 100%; }
@@ -60,7 +59,7 @@ const G = `
   .ac-opt:hover, .ac-opt.hi { background: #f4f6fb; }
 
   /* BUTTONS */
-  .btn { width: 100%; padding: 17px; border: none; border-radius: 12px; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 0.88rem; letter-spacing: 2.5px; text-transform: uppercase; cursor: pointer; transition: opacity 0.2s, transform 0.12s; }
+  .btn { width: 100%; padding: 17px; border: none; border-radius: 12px; font-family: "Futura", "Century Gothic", "Trebuchet MS", sans-serif; font-weight: 800; font-size: 0.88rem; letter-spacing: 2.5px; text-transform: uppercase; cursor: pointer; transition: opacity 0.2s, transform 0.12s; }
   .btn:active { transform: scale(0.98); }
   .btn:disabled { opacity: 0.38; cursor: not-allowed; transform: none; }
   .btn-blue { background: #c5d2ff; color: #3355cc; }
@@ -71,7 +70,7 @@ const G = `
   /* RANDOMISER */
   .rand-center { display: flex; flex-direction: column; align-items: center; text-align: center; padding-top: 20px; }
   .big-flag { font-size: 6rem; display: block; margin-bottom: 6px; }
-  .big-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 3rem; text-transform: uppercase; letter-spacing: -1px; }
+  .big-name { font-family: "Futura", "Century Gothic", "Trebuchet MS", sans-serif; font-weight: 900; font-size: 3rem; text-transform: uppercase; letter-spacing: -1px; }
   .small-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #aab; margin-top: 4px; }
   .spin-row { display: flex; gap: 10px; font-size: 2.8rem; height: 54px; align-items: center; justify-content: center; margin: 10px 0; }
   .spin-row span { animation: bob 0.14s ease-in-out infinite alternate; }
@@ -84,7 +83,7 @@ const G = `
   /* BOARDING PASS */
   .bp-center { display: flex; flex-direction: column; align-items: center; text-align: center; padding-top: 8px; width: 100%; }
   .bp-icon { width: 72px; height: 72px; background: #0d0d1a; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 18px; }
-  .bp-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 2.4rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; }
+  .bp-title { font-family: "Futura", "Century Gothic", "Trebuchet MS", sans-serif; font-weight: 900; font-size: 2.4rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; }
   .bp-sub { font-size: 0.68rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #aab; margin-bottom: 28px; }
 
   /* LOUNGE */
@@ -92,7 +91,7 @@ const G = `
   .banner-icon { font-size: 1.2rem; margin-top: 1px; }
   .banner-label { font-size: 0.65rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #4f7fff; margin-bottom: 3px; }
   .banner-text { font-size: 0.8rem; color: #7a8099; line-height: 1.4; }
-  .lounge-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 2.5rem; text-transform: uppercase; line-height: 1; letter-spacing: -0.5px; margin-bottom: 4px; }
+  .lounge-title { font-family: "Futura", "Century Gothic", "Trebuchet MS", sans-serif; font-weight: 900; font-size: 2.5rem; text-transform: uppercase; line-height: 1; letter-spacing: -0.5px; margin-bottom: 4px; }
   .lounge-sub { font-size: 0.66rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #aab; margin-bottom: 20px; }
   .section-box { background: #f4f6fb; border-radius: 14px; padding: 16px; margin-bottom: 12px; }
   .section-label { font-size: 0.62rem; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: #9aa; margin-bottom: 10px; }
@@ -110,7 +109,7 @@ const G = `
 
   /* REVEAL */
   .reveal-center { display: flex; flex-direction: column; align-items: center; text-align: center; padding-top: 16px; }
-  .reveal-country { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 3rem; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 20px; }
+  .reveal-country { font-family: "Futura", "Century Gothic", "Trebuchet MS", sans-serif; font-weight: 900; font-size: 3rem; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 20px; }
   .result-row { display: flex; align-items: center; justify-content: space-between; padding: 13px 0; border-bottom: 1px solid #eef0f6; width: 100%; }
   .result-row:last-child { border-bottom: none; }
   .r-name { font-weight: 700; font-size: 0.93rem; }
@@ -122,7 +121,7 @@ const G = `
   .wait-page { display: flex; flex-direction: column; align-items: center; text-align: center; padding-top: 52px; gap: 12px; }
   .wait-icon { width: 72px; height: 72px; background: #f4f6fb; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; animation: float 2s ease-in-out infinite; }
   @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
-  .wait-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 2rem; text-transform: uppercase; }
+  .wait-title { font-family: "Futura", "Century Gothic", "Trebuchet MS", sans-serif; font-weight: 900; font-size: 2rem; text-transform: uppercase; }
   .wait-sub { font-size: 0.84rem; color: #7a8099; }
   .guess-badge { background: #f4f6fb; border-radius: 50px; padding: 8px 20px; font-weight: 700; font-size: 0.88rem; }
   .progress-wrap { width: 75%; background: #eef0f6; border-radius: 50px; height: 5px; overflow: hidden; }
