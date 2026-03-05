@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { COUNTRIES } from "./countries.js";
 import { roomRef, guestRef, set, update, onValue, get, generateRoomId } from "./firebase.js";
+import MapReveal from "./MapReveal.jsx";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // STYLES
@@ -396,22 +397,13 @@ function HostLoungeScreen({ onBack }) {
           <button className="back" onClick={onBack}>←</button>
           <div className="room-pill" onClick={copyCode}><span className="pill-dot" />{roomId}</div>
         </div>
-        <div className="reveal-center pi">
-          <span className="big-flag">{room.flag}</span>
-          <div className="reveal-country">{room.country}</div>
-          <div style={{ width: "100%" }}>
-            {guests.map(g => {
-              const ok = g.guess?.toLowerCase() === room.country?.toLowerCase();
-              return (
-                <div className="result-row" key={g.name}>
-                  <div><div className="r-name">{g.name}</div><div className="r-guess">{g.flag} {g.guess}</div></div>
-                  <span className={ok ? "r-ok" : "r-no"}>{ok ? "CORRECT ✓" : "WRONG ✗"}</span>
-                </div>
-              );
-            })}
-          </div>
-          <button className="btn btn-black" style={{ marginTop: 32, width: "100%" }} onClick={onBack}>New Expedition</button>
-        </div>
+        <MapReveal
+          country={room.country}
+          flag={room.flag}
+          guests={guests}
+          isGuest={false}
+          onDone={onBack}
+        />
         <div className={`toast${on ? " on" : ""}`}>{msg}</div>
       </div>
     );
@@ -491,25 +483,14 @@ function GuestWaitingScreen({ roomId, guestId, name, guess, onBack }) {
           <button className="back" onClick={onBack}>←</button>
           <div className="room-pill"><span className="pill-dot" />{roomId}</div>
         </div>
-        <div className="reveal-center pi">
-          <span className="big-flag">{room.flag}</span>
-          <div className="reveal-country">{room.country}</div>
-          <div style={{ padding: "9px 22px", borderRadius: 50, marginBottom: 20, background: correct ? "rgba(76,175,80,0.1)" : "rgba(224,85,85,0.09)", color: correct ? "#2e7d32" : "#c62828", fontWeight: 800, fontSize: "0.95rem" }}>
-            {correct ? "🎉 You got it right!" : `😅 You guessed ${guess?.flag} ${guess?.name}`}
-          </div>
-          <div style={{ width: "100%" }}>
-            {guests.map(g => {
-              const ok = g.guess?.toLowerCase() === room.country?.toLowerCase();
-              return (
-                <div className="result-row" key={g.name}>
-                  <div><div className="r-name">{g.name}</div><div className="r-guess">{g.flag} {g.guess}</div></div>
-                  <span className={ok ? "r-ok" : "r-no"}>{ok ? "CORRECT ✓" : "WRONG ✗"}</span>
-                </div>
-              );
-            })}
-          </div>
-          <button className="btn btn-black" style={{ marginTop: 32, width: "100%" }} onClick={onBack}>Back to Home</button>
-        </div>
+        <MapReveal
+          country={room.country}
+          flag={room.flag}
+          guests={guests}
+          myGuess={guess?.name}
+          isGuest={true}
+          onDone={onBack}
+        />
       </div>
     );
   }
