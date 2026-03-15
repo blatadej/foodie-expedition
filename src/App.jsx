@@ -353,6 +353,8 @@ const G = `
   .home-btn-arrow { font-size: 1.2rem; opacity: 0.4; }
   .btn-host { background: #1a1a2e; color: #fff; box-shadow: 0 4px 20px rgba(26,26,46,0.2); }
   .btn-host .home-btn-icon { background: rgba(255,255,255,0.12); }
+  .btn-join { background: #fff; color: #1a1a2e; border: 1.5px solid #eee; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+  .btn-join .home-btn-icon { background: #f3f5ff; }
   .btn-rand { background: #fff; color: #1a1a2e; border: 1.5px solid #eee; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
   .btn-rand .home-btn-icon { background: #fff5f3; }
   .topnav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0 20px; }
@@ -584,7 +586,7 @@ function RevealScreen({ room, myGuess, isGuest, onDone, roomId, onCopy }) {
 // ─────────────────────────────────────────────────────────────────────────────
 // HOME
 // ─────────────────────────────────────────────────────────────────────────────
-function HomeScreen({ onHost, onRand }) {
+function HomeScreen({ onHost, onJoin, onRand }) {
   return (
     <div className="page">
       <div className="home-wrap fu">
@@ -593,10 +595,18 @@ function HomeScreen({ onHost, onRand }) {
         <div className="home-desc">Cook a mystery cuisine, then let your guests guess where it's from.</div>
         <div className="home-btns">
           <button className="home-btn btn-host" onClick={onHost}>
-            <div className="home-btn-icon">🎩</div>
+            <div className="home-btn-icon">🗺️</div>
             <div className="home-btn-text">
-              <div className="home-btn-title">Host a Dinner</div>
+              <div className="home-btn-title">Host Expedition</div>
               <div className="home-btn-sub">Create a room & invite guests</div>
+            </div>
+            <span className="home-btn-arrow">→</span>
+          </button>
+          <button className="home-btn btn-join" onClick={onJoin}>
+            <div className="home-btn-icon">🎟️</div>
+            <div className="home-btn-text">
+              <div className="home-btn-title">Join Expedition</div>
+              <div className="home-btn-sub">Enter a room code to join</div>
             </div>
             <span className="home-btn-arrow">→</span>
           </button>
@@ -1003,7 +1013,7 @@ export default function App() {
     <div className="app">
       <style>{G}</style>
       <Header />
-      {screen === "home"  && <HomeScreen onHost={() => setScreen("host")} onRand={() => setScreen("rand")} />}
+      {screen === "home"  && <HomeScreen onHost={() => setScreen("host")} onJoin={() => setScreen("guest")} onRand={() => setScreen("rand")} />}
       {screen === "rand"  && <RandomiserScreen onBack={() => setScreen("home")} />}
       {screen === "host"  && <HostFlow onBack={() => { clearRoomFromUrl(); setScreen("home"); }} />}
       {screen === "guest" && <GuestFlow prefillCode={inviteCode} onBack={() => { clearRoomFromUrl(); setScreen("home"); }} />}
